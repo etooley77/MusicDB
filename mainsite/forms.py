@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import LoginUser
+from .models import LoginUser, Artist
 
 class SignUpForm(UserCreationForm):
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email Address'}))
@@ -39,3 +39,12 @@ class LoginForm(forms.ModelForm):
 	class Meta:
 		model = LoginUser
 		exclude = ("user",)
+
+
+
+class AddArtistForm(forms.ModelForm):
+
+
+	class Meta:
+		model = Artist
+		fields = ['artist_name', 'real_name', 'bands', 'birth_year', 'birth_month', 'birth_day', 'death_year', 'death_month', 'death_day', 'about_section']

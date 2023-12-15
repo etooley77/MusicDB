@@ -2,6 +2,33 @@
 
 {% block content %}
 
-<h1 style="text-align: center;">Hello!</h1>
+    <h1 style="text-align: center;">Music and Artist Database!</h1>
+
+    <a class="btn btn-primary" href="{% url 'upload_data' %}" role="button">Upload Data!</a>
+
+    {% if artists %}
+
+        {% for artist in artists %}
+
+            <br>
+
+            <div>
+                <h1> {{ artist.artist_name }} </h1>
+                <h2> {{ artist.real_name }} </h2>
+                <p> {{ artist.bands }} </p>
+                <br>
+                <p> {{ artist.birth_date }} </p>
+                <p> {{ artist.death_date }} </p>
+
+                <div>
+                    <p> {{ artist.about_section }} </p>
+                </div>
+            </div>
+
+            <br>
+
+        {% endfor %}
+
+    {% endif %}
 
 {% endblock %}
